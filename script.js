@@ -82,12 +82,13 @@
     const brands = [
       ['telat-group.com','TELAT GROUP'],
       ['darhe.com.mx','DARHE'],
-      ['socialand.com','SOCIALAND'],
-      ['grupoacir.com.mx','GRUPO ACIR'],
+      ['ipn.mx','IPN'],
       ['quierocasa.com.mx','QUIERO CASA'],
-      ['ipn.mx','IPN']
+      ['grupoacir.com.mx','GRUPO ACIR'],
+      ['socialand.com','SOCIALAND'],
+      ['telmex.com','TELMEX']
     ];
-    trajectory.innerHTML = brands.map(([domain,name]) => `<span class="trajectory-brand"><img src="https://www.google.com/s2/favicons?domain=${domain}&sz=128" alt="" loading="lazy" onerror="this.style.display='none'"><span>${name}</span></span>`).join('');
+    trajectory.innerHTML = brands.map(([domain,name]) => `<span class="trajectory-brand"><img src="https://www.google.com/s2/favicons?domain=${domain}&sz=128" alt="${name}" loading="lazy" onerror="this.style.display='none'"><span>${name}</span></span>`).join('');
   }
 
   const aboutCopy = document.querySelector('.about-copy');
