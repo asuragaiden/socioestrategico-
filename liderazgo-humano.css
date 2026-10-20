@@ -50,3 +50,8 @@ body{background:var(--paper);color:var(--ink)}
 .spotify-button{background:#F4EFE5;color:#203E36}
 .contact{background:#C69B51;color:#203E36}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #7F6333;outline-offset:4px}
+
+/* Darker forest for small labels on stone and mid-green surfaces. */
+.podcast-visual-brand{color:#132A24}
+.capabilities .bento-card:nth-child(3) .card-index{color:#F4EFE5}
+.impact-blue .impact-label,.impact-purple .impact-label{color:#F4EFE5}
