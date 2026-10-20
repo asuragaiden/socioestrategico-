@@ -55,3 +55,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #7F
 .podcast-visual-brand{color:#132A24}
 .capabilities .bento-card:nth-child(3) .card-index{color:#F4EFE5}
 .impact-blue .impact-label,.impact-purple .impact-label{color:#F4EFE5}
+
+/* Consultoría contemporánea: one type family throughout the website. */
+:root{--font-brand:'Plus Jakarta Sans',Arial,sans-serif}
+body,button,input,textarea,select{font-family:var(--font-brand);font-weight:400}
+h1,h2,h3,.hero h1,.section h2,.contact h2,.results-head h2{font-family:var(--font-brand);font-weight:700;line-height:1.08;letter-spacing:-.045em;overflow-wrap:break-word}
+.serif,.quote,.results-head h2 span{font-family:var(--font-brand);font-style:normal;font-weight:700}
+.quote{font-size:clamp(36px,3.5vw,54px);line-height:1.12;letter-spacing:-.045em}
+.button,.nav-cta,.text-link,.whatsapp-float{font-family:var(--font-brand);font-weight:600}
+.impact-card strong,.metric strong{font-weight:700;font-variant-numeric:tabular-nums}
+@media(max-width:720px){.hero h1{font-size:clamp(40px,11.5vw,64px)}.quote{font-size:clamp(30px,9vw,46px)}.results-head h2{font-size:clamp(32px,9.5vw,54px)}}
