@@ -17,3 +17,30 @@
 :root[data-theme="dark"] .teaching-card{background:#223750;color:#f0f3f5;border-color:var(--line)}
 :root[data-theme="dark"] .teaching-card p,:root[data-theme="dark"] .teaching-note{color:#d8e4ed}
 @media(max-width:720px){.theme-toggle{min-width:40px;padding:0 9px}.theme-toggle-label{display:none}}
+
+/* Transiciones discretas y accesibles entre temas */
+html.theme-animate body,
+html.theme-animate .nav,
+html.theme-animate .bento-card,
+html.theme-animate .hero-card,
+html.theme-animate .podcast-panel,
+html.theme-animate .results-showcase,
+html.theme-animate .impact-card,
+html.theme-animate .contact-wrap,
+html.theme-animate .theme-toggle,
+html.theme-animate .status,
+html.theme-animate .ghost,
+html.theme-animate .ticker {
+  transition: background-color .38s ease, color .38s ease, border-color .38s ease, box-shadow .38s ease;
+}
+.theme-toggle-icon {display:inline-block;transition:transform .32s ease,opacity .25s ease}
+.theme-toggle:hover .theme-toggle-icon{transform:rotate(18deg)}
+.theme-toggle:active{transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){
+  html.theme-animate body,html.theme-animate .nav,html.theme-animate .bento-card,
+  html.theme-animate .hero-card,html.theme-animate .podcast-panel,
+  html.theme-animate .results-showcase,html.theme-animate .impact-card,
+  html.theme-animate .contact-wrap,html.theme-animate .theme-toggle,
+  html.theme-animate .status,html.theme-animate .ghost,html.theme-animate .ticker,
+  .theme-toggle-icon{transition:none!important;animation:none!important}
+}
