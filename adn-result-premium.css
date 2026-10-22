@@ -1,0 +1,29 @@
+/* ADN Estratégico · Resultados premium */
+#result.panel{max-width:820px;margin:12px auto 35px;padding:clamp(20px,4vw,36px);border-radius:24px}
+#result .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;background:#79b9af24;border:1px solid #79b9af77;color:#276e70;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+#result .pill:before{content:'✦';font-size:15px}
+#result #headline{font-size:clamp(25px,4vw,38px);line-height:1.16;letter-spacing:-.045em;margin:17px 0 20px}
+#result .result-score-card{display:grid;grid-template-columns:128px 1fr;align-items:center;gap:24px;background:linear-gradient(120deg,#f0f6fa,#e9f5f1);border:1px solid #cce3e3;border-radius:20px;padding:22px;margin:0 0 22px}
+#result .result-score-card .metric{display:grid;place-items:center;width:116px;height:116px;border-radius:50%;background:radial-gradient(closest-side,#fff 81%,transparent 83%),conic-gradient(#4679ad,#79b9af,#4679ad);font-size:32px;font-weight:800;letter-spacing:-.05em;color:#172c49;box-shadow:0 6px 20px #172c4910}
+#result .result-score-card p{margin:0;font-size:14px;line-height:1.5;color:#48627a}
+#result .result-score-card strong{display:block;color:#172c49;font-size:17px;margin-bottom:5px}
+#result .result-intro{font-size:15px;line-height:1.75}
+#result .result-insights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}
+#result .result-insight{border:1px solid #dce6ee;background:#f9fbfc;border-radius:16px;padding:18px}
+#result .result-insight h3{font-size:15px;margin:0 0 8px;color:#172c49}
+#result .result-insight h3:before{content:'◆';color:#79b9af;margin-right:8px;font-size:12px}
+#result .result-insight p{font-size:14px;line-height:1.6;margin:0}
+#result .result-plan{background:#f8fafc;border:1px solid #dce6ee;border-radius:18px;padding:20px;margin:20px 0}
+#result .result-plan h3{margin:0 0 12px;font-size:19px}
+#result .result-plan ul{list-style:none;counter-reset:weeks;padding:0;margin:0;display:grid;gap:10px}
+#result .result-plan li{counter-increment:weeks;position:relative;padding:11px 12px 11px 52px;border-radius:12px;background:white;border:1px solid #e1e9ef;font-size:13px;line-height:1.6}
+#result .result-plan li:before{content:counter(weeks);position:absolute;left:12px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#79b9af30;color:#245d65;font-weight:800}
+#result .row{display:flex;flex-wrap:wrap;gap:10px}
+#result .row .btn{margin:0;padding:11px 15px;font-size:13px}
+#result .result-disclaimer{font-size:12px;line-height:1.6}
+body.dark #result .result-score-card,body.dark #result .result-insight,body.dark #result .result-plan{background:#20384d;border-color:#456074}
+body.dark #result .result-score-card strong,body.dark #result .result-insight h3{color:#eaf4fc}
+body.dark #result .result-score-card p{color:#c7d5e0}
+body.dark #result .result-plan li{background:#182d40;border-color:#456074;color:#eaf4fc}
+@media(max-width:620px){#result.panel{padding:19px 15px}#result .result-score-card{grid-template-columns:92px 1fr;gap:14px;padding:15px}#result .result-score-card .metric{width:86px;height:86px;font-size:25px}#result .result-insights{grid-template-columns:1fr}#result .result-plan{padding:14px}}
+@media print{header,#result .row,#result #save-status{display:none!important}#result.panel{box-shadow:none;border:0;padding:0}#result .result-score-card,#result .result-plan,#result .result-insight{break-inside:avoid}}
