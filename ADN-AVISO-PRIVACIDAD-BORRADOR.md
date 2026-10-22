@@ -2,7 +2,7 @@
 **Versión de revisión 0.1 · NO PUBLICAR NI ACTIVAR REGISTRO HASTA SU APROBACIÓN**
 
 **Responsable:** Miguel Ángel Meza, persona física que opera con el nombre comercial Socio Estratégico.
-**Domicilio profesional:** [INCORPORAR EL DOMICILIO PROFESIONAL CONFIRMADO ÚNICAMENTE EN LA VERSIÓN FINAL APROBADA].
+**Domicilio profesional:** Calle 8, número 42, interior 2, colonia El Sol, Nezahualcóyotl, Estado de México, C.P. 57200.
 **Contacto de privacidad y derechos ARCO:** miguel.meza.lcc@gmail.com.
 
 ## Datos personales que tratamos
@@ -28,7 +28,7 @@ Las modificaciones relevantes a este aviso se comunicarán mediante el sitio web
 
 ## Pendientes de revisión
 - Confirmar texto jurídico con la legislación mexicana vigente y obligaciones de transparencia.
-- Aprobar expresamente la publicación del domicilio profesional en la versión pública.
+- Publicación del domicilio profesional autorizada expresamente por el responsable el 22 de octubre de 2026.
 - Verificar proveedores, transferencias, plazos legales, procedimiento ARCO y mecanismo de baja.
 - Publicar versión definitiva en URL estable y actualizar PRIVACY_VERSION.
 - Activar REGISTRATION_ENABLED solo tras revisión de seguridad y prueba con dos cuentas.
