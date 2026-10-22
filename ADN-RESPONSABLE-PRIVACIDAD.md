@@ -7,7 +7,7 @@
 - Finalidades secundarias propuestas: promociones e invitaciones a asesoría, mediante consentimiento separado y opcional.
 
 ## Pendiente antes de activar el registro
-1. Domicilio de contacto del responsable (puede evaluarse un domicilio profesional válido, sin inventarlo).
+1. Domicilio profesional confirmado por el responsable: Calle 8 número 42, interior 2, colonia El Sol, Nezahualcóyotl, Estado de México, C.P. 57200. **No publicar este documento ni trasladar el domicilio al sitio sin la aprobación explícita del texto final del aviso.**
 2. Plazos y criterios de conservación de datos, procedimiento de baja y cancelación.
 3. Información de encargados/proveedores, transferencias internacionales aplicables y medidas de seguridad.
 4. Redacción final y revisión del aviso de privacidad integral y simplificado conforme a la legislación mexicana vigente.
