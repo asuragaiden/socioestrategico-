@@ -1,7 +1,6 @@
-// Configuración pública de Supabase (la clave anon/publishable NO es un secreto).
-// Completar tras crear el proyecto y habilitar Email OTP en Supabase Auth.
-// Nunca colocar service_role, SMTP password o secretos aquí.
+// Configuración pública de Supabase para ADN Estratégico.
+// Publishable key es pública; jamás añadir secret/service_role o credenciales SMTP.
 window.ADN_AUTH_CONFIG = Object.freeze({
-  url: "",
-  publishableKey: ""
+  url: "https://rgyhrpgpawjxrmtpughu.supabase.co",
+  publishableKey: "sb_publishable_BrekuPAi2wGGC7lxHQ9rtQ_yGnAdpn1"
 });
