@@ -1,0 +1,19 @@
+"use strict";
+(()=>{const $=s=>document.querySelector(s),cfg=window.ADN_AUTH_CONFIG;let db=null,user=null,currentId=null;
+const status=(s)=>{$("#auth-message").textContent=s},saveStatus=s=>{$("#save-message").textContent=s};
+const fields=()=>Object.fromEntries(new FormData($("#diagnostico")).entries());
+const fill=(obj)=>{for(const [k,v] of Object.entries(obj||{})){const el=$("#diagnostico").elements[k];if(el)el.value=v??""}$("#diagnostico").dispatchEvent(new Event("input",{bubbles:true}))};
+function lock(message){$("#workspace").hidden=true;$("#login-panel").hidden=false;$("#logout").hidden=true;status(message||"Inicia sesión para continuar.");}
+async function guard(){const {data,error}=await db.rpc("app_is_financial_owner");if(error||data!==true){lock("Esta cuenta no tiene autorización para acceder al diagnóstico financiero. Contacta al administrador.");return false}return true}
+async function show(){const {data:{user:u},error}=await db.auth.getUser();if(error||!u){user=null;lock();return}user=u;if(!await guard())return;$("#login-panel").hidden=false;$("#logout").hidden=false;$("#workspace").hidden=false;status("Sesión autorizada: "+u.email);await list()}
+async function list(){if(!user)return;const {data,error}=await db.from("app_financial_cases").select("id,reference,appointment_date,stage,financial_data,updated_at").order("updated_at",{ascending:false}).limit(100);if(error){saveStatus("No se pudo consultar: "+error.message);return}const root=$("#cases-list");root.replaceChildren();if(!data.length){root.textContent="Aún no hay expedientes guardados.";return}for(const item of data){const b=document.createElement("button");b.type="button";b.className="case-item";b.textContent=(item.reference||"Sin referencia")+" · "+(item.appointment_date||"Sin fecha")+" · "+new Date(item.updated_at).toLocaleDateString("es-MX");b.addEventListener("click",()=>{currentId=item.id;fill(item.financial_data);saveStatus("Expediente cargado. Puedes continuar editándolo.")});root.append(b)}}
+async function save(){if(!user)return;const data=fields(),payload={owner_id:user.id,reference:String(data.referencia||"").slice(0,200),appointment_date:data.fecha||null,stage:String(data.etapa||"").slice(0,100),priority:String(data.prioridad||"").slice(0,100),financial_data:data,updated_at:new Date().toISOString()};$("#save-case").disabled=true;saveStatus("Guardando…");try{let q;if(currentId){q=await db.from("app_financial_cases").update(payload).eq("id",currentId).select("id").single()}else{q=await db.from("app_financial_cases").insert(payload).select("id").single()}if(q.error)throw q.error;currentId=q.data.id;saveStatus("Guardado correctamente en tu expediente privado.");await list()}catch(e){saveStatus("No se pudo guardar: "+e.message)}finally{$("#save-case").disabled=false}}
+$("#new-case").addEventListener("click",()=>{currentId=null;$("#diagnostico").reset();saveStatus("Nuevo expediente listo para capturar.")});
+$("#save-case").addEventListener("click",save);
+$("#reload-cases").addEventListener("click",list);
+$("#send-link").addEventListener("click",async()=>{const email=$("#login-email").value.trim();if(!email)return status("Escribe tu correo.");if(!db)return status("No se pudo iniciar el servicio.");const {error}=await db.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+location.pathname,shouldCreateUser:false}});status(error?"No se pudo enviar el enlace: "+error.message:"Revisa tu correo y abre el enlace de acceso.")});
+$("#logout").addEventListener("click",async()=>{await db.auth.signOut();user=null;currentId=null;lock("Sesión cerrada.")});
+if(!cfg||!window.supabase){lock("No se encontró la configuración de Supabase.");return}
+db=window.supabase.createClient(cfg.url,cfg.publishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+db.auth.onAuthStateChange(()=>{setTimeout(show,0)});show();
+})();
