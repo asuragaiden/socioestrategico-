@@ -65,3 +65,12 @@ body.dark #result .result-plan{background:transparent}
 body.dark #result .result-secondary-actions .btn{color:#c7d5e0!important}
 @media(max-width:620px){#result .result-score-card{gap:15px;padding:15px 0}#result .result-score-card .metric{font-size:32px}#result .result-insights{grid-template-columns:1fr;gap:17px}#result .result-plan summary{padding:13px}#result .result-actions{flex-wrap:wrap}}
 @media print{#result .result-plan ul{display:grid!important}#result .result-plan summary span{display:none}}
+
+/* Recomendación prioritaria sin añadir saturación */
+#result .result-priority{padding:16px 19px;border-left:3px solid #79b9af;background:#f4f9f8;border-radius:0 13px 13px 0;margin:0 0 23px}
+#result .result-priority-label{display:block;color:#39817d;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:7px}
+#result .result-priority strong{display:block;color:#172c49;font-size:16px;line-height:1.4;margin-bottom:5px}
+#result .result-priority p{font-size:13px;line-height:1.6;color:#52647b;margin:0}
+body.dark #result .result-priority{background:#20384d}
+body.dark #result .result-priority strong{color:#edf5ff}
+body.dark #result .result-priority p{color:#c7d5e0}
