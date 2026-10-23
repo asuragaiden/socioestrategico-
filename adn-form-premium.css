@@ -1,0 +1,31 @@
+:root{--adn-navy:#172c49;--adn-mint:#79b9af;--adn-line:#dce6ee;--adn-ink:#172c49;--adn-surface:#fff;--adn-subtle:#f2f7f8}
+body{background:radial-gradient(ellipse at 90% 0%,rgba(121,185,175,.19),transparent 42%),#f0f3f5;color:var(--adn-ink)}
+header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.91);backdrop-filter:blur(16px);box-shadow:0 8px 30px #172c4909}
+main{max-width:910px}main>h1{font-weight:800}main>.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid #79b9af60;border-radius:999px;background:#79b9af18;color:#316f72}
+main>.eyebrow:before{content:'✦';font-size:15px}
+.panel{position:relative;overflow:hidden;border:1px solid var(--adn-line);background:var(--adn-surface);border-radius:26px;box-shadow:0 22px 60px #172c4910;animation:adnAppear .45s ease both}
+.panel:before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4679ad,#79b9af)}
+.panel h2{font-size:clamp(24px,3vw,32px);line-height:1.2}
+.btn{border-radius:13px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 6px 16px #172c4920}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 24px #172c4928}
+.btn:active:not(:disabled){transform:translateY(0)}
+.btn:focus-visible,.option:focus-visible,input:focus-visible{outline:3px solid #79b9af;outline-offset:3px}
+.option{position:relative;min-height:74px;padding:20px 55px 20px 23px;border-radius:17px;border:1px solid #d7e3ea;background:linear-gradient(145deg,#fff,#f9fcfd);box-shadow:0 5px 15px #172c4908;font-weight:600;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;animation:adnOption .35s ease both}
+.option:nth-child(2){animation-delay:45ms}.option:nth-child(3){animation-delay:90ms}.option:nth-child(4){animation-delay:135ms}
+.option:before{content:'';position:absolute;right:19px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:50%;border:2px solid #b8c9d7;background:white}
+.option:hover{transform:translateY(-2px);border-color:#79b9af;box-shadow:0 12px 26px #172c4918}
+.option.selected{border:2px solid #368a82;background:linear-gradient(120deg,#e8f6f2,#f7fcfa);box-shadow:0 8px 24px #79b9af33}
+.option.selected:before{content:'✓';display:grid;place-items:center;background:#368a82;color:white;border-color:#368a82;font-size:14px;font-weight:800}
+.bar{height:10px;margin:19px 0 29px;background:#e3ebf1}.bar span{background:linear-gradient(90deg,#4679ad,#79b9af);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+#question{font-size:clamp(23px,3.6vw,32px);margin:0 0 26px}
+#quiz .row:last-child{margin-top:25px}
+#result .metric{font-size:clamp(46px,7vw,70px);letter-spacing:-.06em;color:#32847d}
+#result .pill{border:1px solid #79b9af80}
+input:not([type=checkbox]){background:var(--adn-surface);border:1px solid #cbd9e4;border-radius:13px;transition:border-color .2s,box-shadow .2s}
+input:not([type=checkbox]):focus{border-color:#79b9af;box-shadow:0 0 0 4px #79b9af22}
+body.dark{--adn-ink:#edf5ff;--adn-surface:#182b41;--adn-line:#37516a;--adn-subtle:#233b51;background:radial-gradient(ellipse at 85% 0%,#79b9af19,transparent 45%),#0d1c2c;color:#edf5ff}
+body.dark header{background:#14263bea;border-color:#37516a}body.dark header a{color:#edf5ff}body.dark .panel{background:#182b41;color:#edf5ff}body.dark p,body.dark ul,body.dark .muted{color:#c1d0dc}body.dark .option{background:#21374e;color:#edf5ff;border-color:#48647b}body.dark .option.selected{background:#214c51;border-color:#79b9af}body.dark input:not([type=checkbox]){background:#233b51;color:#edf5ff}body.dark .secondary{background:#31485e;color:#edf5ff}
+@keyframes adnAppear{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes adnOption{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:620px){.panel{padding:23px 18px;border-radius:20px}.option{padding:17px 49px 17px 17px;min-height:67px}#quiz .row:last-child{gap:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{body{background:white!important}.panel{box-shadow:none!important;animation:none!important}}

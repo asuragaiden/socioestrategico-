@@ -1,0 +1,30 @@
+/* Identidad unificada ADN Estratégico · Acceso y expediente */
+:root{--adn-ink:#172c49;--adn-surface:#fff;--adn-line:#dce6ee;--adn-mint:#79b9af}
+body{color:var(--adn-ink);background:radial-gradient(ellipse at 90% 0%,rgba(121,185,175,.19),transparent 42%),#f0f3f5}
+header{position:sticky;top:0;z-index:5;padding:9px max(3%,calc((100% - 1060px)/2));min-height:58px;background:rgba(255,255,255,.91);border-bottom:1px solid #dbe3ed;box-shadow:0 8px 30px #172c4909;display:flex;justify-content:space-between;gap:12px}
+header a{display:inline-flex;align-items:center;gap:9px;font-size:15px;letter-spacing:0}
+header img{width:39px;height:39px;object-fit:contain;background:#fff;border-radius:8px;padding:2px}
+#access-theme{border:0;background:#e8eff6;color:#172c49;border-radius:12px;padding:9px 14px;font-size:18px;min-width:45px;box-shadow:none}
+main{max-width:760px;margin:12px auto 30px;padding:0 20px}
+main>p:first-child{font-size:11px!important;letter-spacing:.12em!important}
+main>h1{font-size:clamp(26px,3.5vw,36px);line-height:1.16;margin:13px 0 8px}
+main>h1+p{font-size:14px;line-height:1.5;margin-bottom:14px}
+.card{padding:clamp(18px,3vw,28px);border:1px solid var(--adn-line);border-radius:20px;box-shadow:0 18px 44px #172c4910}
+.card h2{font-size:clamp(21px,2.8vw,26px)}
+.card input:not([type=checkbox]){padding:12px 14px}
+.card button{background:#172c49;color:#fff}
+.card #back{background:#e8eff6!important;color:#172c49!important}
+#profile-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px}
+#profile-form label:has(input[type=checkbox]),#profile-form button{grid-column:1/-1}
+#profile-form label{margin:10px 0}
+body.dark{--adn-ink:#edf5ff;--adn-surface:#182b41;--adn-line:#37516a;background:radial-gradient(ellipse at 90% 0%,#79b9af18,transparent 42%),#0d1c2c;color:#edf5ff}
+body.dark header{background:#14263bea;border-color:#37516a}
+body.dark header a{color:#edf5ff}
+body.dark .card{background:#182b41;border-color:#37516a;color:#edf5ff}
+body.dark p,body.dark small,body.dark label{color:#c7d5e0}
+body.dark .card input:not([type=checkbox]){background:#233b51;color:#edf5ff;border-color:#48647b}
+body.dark .card a{color:#a3ded6}
+body.dark #access-theme{background:#31485e;color:#edf5ff}
+body.dark #status:not(:empty),body.dark .notice{background:#243d51;color:#edf5ff}
+@media(max-width:620px){header{padding:9px 13px}header a{font-size:12px}header img{width:34px;height:34px}main{margin:9px auto;padding:0 12px}.card{padding:19px 16px}#profile-form{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}

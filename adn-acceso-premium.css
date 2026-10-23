@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#172c49;background:#f0f3f5}
+body{background:radial-gradient(ellipse at 90% 0%,rgba(121,185,175,.16),transparent 45%),#f0f3f5;min-height:100vh}
+header{padding:11px max(4%,calc((100% - 1050px)/2));min-height:66px;display:flex;align-items:center;background:#ffffffed;backdrop-filter:blur(16px);box-shadow:0 8px 25px #172c4909}
+header a{display:inline-flex;align-items:center;gap:10px;font-size:15px;letter-spacing:.035em}
+header img{width:39px;height:39px;object-fit:contain;background:white;border-radius:9px;padding:2px}
+main{max-width:690px;margin:26px auto;padding:0 20px}
+main>p:first-child{display:inline-flex;align-items:center;padding:8px 13px;border:1px solid #79b9af70;border-radius:999px;background:#79b9af17;color:#326e71!important;font-size:10px!important;letter-spacing:.12em!important}
+main>h1{font-size:clamp(29px,4vw,40px);line-height:1.18;margin:13px 0 8px;letter-spacing:-.045em}
+main>h1+p{font-size:14px;line-height:1.55;margin:0 0 17px;max-width:590px}
+.card{position:relative;overflow:hidden;background:#fff;padding:clamp(20px,3vw,30px);border:1px solid #dce6ee;border-radius:22px;box-shadow:0 22px 55px #172c4910;animation:accessIn .4s ease both}
+.card:before{content:'';position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#4679ad,#79b9af)}
+.card h2{font-size:clamp(21px,3vw,27px);letter-spacing:-.035em;margin:0 0 15px}
+.card h2:before{content:'✦';display:inline-grid;place-items:center;margin-right:10px;width:33px;height:33px;border-radius:10px;background:#79b9af27;color:#327a76;font-size:19px;vertical-align:middle}
+.card h3{margin:23px 0 8px;font-size:17px}
+.card label{font-size:13px;margin:13px 0 17px}
+.card input:not([type=checkbox]){margin-top:7px;padding:12px 14px;border-radius:12px;border-color:#cbd8e3;background:#fff;transition:border-color .2s,box-shadow .2s}
+.card input:not([type=checkbox]):focus{border-color:#79b9af;outline:none;box-shadow:0 0 0 4px #79b9af30}
+.card button{border-radius:12px;padding:12px 18px;transition:transform .18s,box-shadow .18s;box-shadow:0 6px 16px #172c4920}
+.card button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 11px 24px #172c4928}
+.card button:focus-visible,.card a:focus-visible{outline:3px solid #79b9af;outline-offset:3px}
+.card a{color:#287b80;text-underline-offset:3px;font-weight:700}
+.card small{display:block;margin-top:16px;font-size:12px;line-height:1.6}
+.card .notice{background:#eaf6f3;border:1px solid #79b9af55;border-radius:13px}
+#history>*,#profile-ready>p{border-radius:12px}
+#profile-ready>a,#profile-preview>a{display:inline-block;padding:11px 16px;background:#eaf6f3;border:1px solid #79b9af65;border-radius:12px;text-decoration:none}
+#status:not(:empty){background:#edf4f8;padding:11px;border-radius:10px;font-size:13px}
+@keyframes accessIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:620px){header{padding:10px 16px}header a{font-size:13px}header img{width:34px;height:34px}main{margin:16px auto;padding:0 13px}.card{padding:20px 17px;border-radius:18px}main>h1{font-size:29px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
