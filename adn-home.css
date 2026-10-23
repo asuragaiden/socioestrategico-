@@ -1,0 +1,15 @@
+/* ADN Estratégico · módulo de portada */
+.adn-home-panel{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(220px,.8fr);gap:clamp(24px,5vw,70px);align-items:center;padding:clamp(28px,5vw,64px);border:1px solid rgba(70,121,173,.22);border-radius:26px;background:linear-gradient(125deg,rgba(226,234,241,.72),rgba(121,185,175,.13));}
+.adn-home-copy h2{font-size:clamp(32px,4.3vw,58px);line-height:1.13;letter-spacing:-.045em;margin:15px 0 20px}
+.adn-home-copy>p:not(.micro){line-height:1.75;max-width:650px}
+.adn-home-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.adn-home-copy .adn-home-note{font-size:12px;opacity:.7;margin:0}
+.adn-home-features{display:grid;gap:12px}
+.adn-home-features>div{padding:18px 20px;border:1px solid rgba(70,121,173,.18);border-radius:16px;background:rgba(255,255,255,.62);display:flex;align-items:center;gap:17px}
+.adn-home-features strong{font-size:clamp(28px,3vw,43px);line-height:1;color:#4679ad;min-width:50px}
+.adn-home-features span{font-size:13px;line-height:1.55;color:#435a70}
+[data-theme="dark"] .adn-home-panel,body.dark .adn-home-panel{background:linear-gradient(125deg,rgba(23,44,73,.9),rgba(70,121,173,.15));border-color:rgba(121,185,175,.28)}
+[data-theme="dark"] .adn-home-features>div,body.dark .adn-home-features>div{background:rgba(255,255,255,.05);border-color:rgba(121,185,175,.22)}
+[data-theme="dark"] .adn-home-features span,body.dark .adn-home-features span{color:#d5e2ee}
+@media(max-width:800px){.adn-home-panel{grid-template-columns:1fr}.adn-home-features{grid-template-columns:repeat(3,minmax(0,1fr))}.adn-home-features>div{display:block}.adn-home-features strong{display:block;margin-bottom:10px}}
+@media(max-width:550px){.adn-home-features{grid-template-columns:1fr}.adn-home-features>div{display:flex}.adn-home-features strong{margin:0}.adn-home-actions .button{width:100%;justify-content:center}}
