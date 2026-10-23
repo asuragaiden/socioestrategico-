@@ -16,3 +16,15 @@
 body.dark #profile-ready .evolution,body.dark #profile-ready .evolution-metric{background:#20384d;border-color:#456074}
 body.dark #profile-ready .evolution-metric span,body.dark #profile-ready .evolution-bars .bar-item span{color:#c7d5e0}
 @media(max-width:520px){#profile-ready .evolution{padding:14px}#profile-ready .evolution-metric{padding:9px}#profile-ready .evolution-metric strong{font-size:19px}}
+
+#profile-ready .plan-tracker{margin:22px 0;padding:20px;border:1px solid #dce6ee;border-radius:18px;background:#f9fbfc}
+#profile-ready .plan-tracker h3{margin:0 0 8px;font-size:18px}
+#profile-ready .plan-tracker #plan-progress{font-size:13px;margin:0 0 12px}
+#profile-ready .plan-progress-track{height:7px;border-radius:9px;background:#e2eaf1;overflow:hidden;margin-bottom:16px}
+#profile-ready #plan-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#79b9af,#4679ad);border-radius:9px;transition:width .25s}
+#profile-ready .plan-task{display:flex;align-items:flex-start;gap:11px;padding:13px 0;margin:0;border-bottom:1px solid #e2eaf1;font-size:13px;font-weight:500;line-height:1.6;cursor:pointer}
+#profile-ready .plan-task input{width:18px;height:18px;flex:none;margin:2px 0 0;accent-color:#4679ad}
+#profile-ready .plan-task input:checked+span{text-decoration:line-through;opacity:.65}
+#profile-ready .plan-tracker small{display:block;margin-top:13px;line-height:1.5}
+body.dark #profile-ready .plan-tracker{background:#20384d;border-color:#456074}
+body.dark #profile-ready .plan-task{border-color:#456074}
