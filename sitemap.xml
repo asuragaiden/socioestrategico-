@@ -1,8 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://socioestrategico.pro/</loc></url>
-<url><loc>https://socioestrategico.pro/consultoria-de-negocios.html</loc></url>
-<url><loc>https://socioestrategico.pro/inteligencia-en-marketing.html</loc></url>
-<url><loc>https://socioestrategico.pro/estrategia-comercial.html</loc></url>
-<url><loc>https://socioestrategico.pro/platicas-y-workshops.html</loc></url>
+  <url>
+    <loc>https://socioestrategico.pro/</loc>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/consultoria-de-negocios.html</loc>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/inteligencia-en-marketing.html</loc>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/estrategia-comercial.html</loc>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/platicas-y-workshops.html</loc>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/blog/</loc>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/blog/cuando-contratar-consultoria-de-negocios-mexico.html</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/blog/inteligencia-de-mercados-mexico-denue.html</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://socioestrategico.pro/blog/visitas-web-prospectos-mexico.html</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
 </urlset>
