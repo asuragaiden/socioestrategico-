@@ -1,0 +1,1 @@
+document.addEventListener('click', function(event) { const link = event.target.closest('a[href*="wa.me/525512330537"]'); if (!link) return; window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:'contact_intent', contact_channel:'whatsapp', service:link.dataset.service || 'general', page_path:location.pathname}); });
