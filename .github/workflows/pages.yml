@@ -24,6 +24,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build and validate SEO pages
+        run: |
+          python3 scripts/build-blog.py
+          python3 scripts/optimize-public.py
+          python3 scripts/check-seo.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -35,3 +41,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

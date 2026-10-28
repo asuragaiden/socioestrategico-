@@ -26,7 +26,7 @@ Un borrador semanal, con revisión editorial antes de publicar. La tarea program
 ## Publicación
 1. Incorporar la pieza aprobada en `content/posts.json`, con slug único, título, descripción, categoría, fecha real, servicio relacionado, llamada a la acción, cuerpo HTML y fuentes.
 2. Mantener `date` como fecha original; añadir `updated` solo tras una actualización sustancial. No poner fechas futuras para simular publicación.
-3. Ejecutar `python scripts/build-blog.py`. Genera HTML estático, índice del blog, RSS y actualiza el sitemap conservando las URLs existentes.
+3. Ejecutar `python scripts/build-blog.py`, después `python scripts/optimize-public.py` y `python scripts/check-seo.py`. Genera HTML estático, índice del blog, RSS y actualiza el sitemap conservando las URLs existentes.
 4. Revisar el texto, enlaces, metadatos, móvil y escritorio. Comprobar que cualquier nueva URL existe y que JSON-LD coincide con el contenido visible.
 5. Publicar los archivos generados junto con la fuente. El workflow existente de GitHub Pages despliega la raíz del repositorio.
 
