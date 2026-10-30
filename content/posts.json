@@ -8,7 +8,10 @@
     "service": "consultoria-de-negocios.html",
     "cta": "Conversemos sobre el reto de tu negocio",
     "body": "<p class=\"article-lead\">La consultoría tiene sentido cuando existe una decisión importante que tu equipo necesita destrabar. Antes de buscar a alguien, define qué debería cambiar después del proyecto y qué información puedes aportar.</p>\n<h2>Empieza por la decisión, no por el diagnóstico</h2><p>“Queremos crecer” expresa una aspiración, pero todavía no define un encargo. “Necesitamos elegir a qué segmento dirigir nuestra oferta durante el próximo trimestre” permite delimitar un proyecto. Esa diferencia ayuda a evitar documentos extensos que nadie utiliza.</p><p>En un negocio mexicano que vende a empresas, la decisión puede ser priorizar sectores o mejorar la propuesta comercial. Para un negocio local, puede consistir en entender por qué las consultas no se convierten en citas. Ambos requieren estrategia, aunque la información, el presupuesto y el proceso de compra sean distintos.</p>\n<h2>Cinco señales para considerar apoyo externo</h2><ol><li><strong>Las prioridades cambian cada semana.</strong> Hay actividad, pero el equipo no comparte un criterio para decidir qué atender primero.</li><li><strong>Marketing y ventas explican el problema de forma distinta.</strong> Un área pide más contactos y la otra cuestiona su calidad. Falta una definición común de oportunidad.</li><li><strong>La oferta es difícil de explicar.</strong> Cada persona describe un beneficio diferente y los prospectos comparan principalmente por precio.</li><li><strong>Los reportes no cambian decisiones.</strong> Se acumulan métricas sin conectar los resultados con acciones concretas.</li><li><strong>Existe una decisión que necesita contraste.</strong> Entrar a otro segmento o cambiar el posicionamiento exige revisar supuestos antes de comprometer recursos.</li></ol>\n<h2>Qué pedir en una propuesta</h2><p>Solicita una pregunta de negocio explícita, alcance, entregables, responsables, calendario y criterios de aceptación. También debe quedar claro qué datos necesitas proporcionar y qué actividades corresponden a tu equipo. Si comparas propuestas en pesos mexicanos, revisa que el alcance sea equivalente y que se aclare qué incluye el importe.</p><p>Un entregable útil puede ser un mapa de segmentos con criterios de prioridad y un plan de validación. “Análisis estratégico integral” resulta insuficiente si no explica qué decisión permitirá tomar. Un informe puede ser parte del trabajo; su extensión no mide su utilidad.</p>\n<h2>Un ejemplo de alcance acotado</h2><p><strong>Ejemplo hipotético:</strong> una empresa de servicios en México recibe consultas, pero pocas avanzan a propuesta. El proyecto podría revisar una muestra de consultas, identificar motivos de descarte, ajustar el mensaje de la oferta y acordar un seguimiento. El resultado esperado sería una forma consistente de evaluar y atender oportunidades, no una promesa de ventas garantizadas.</p><p>Antes de empezar, registra una línea base: consultas recibidas, consultas pertinentes y propuestas enviadas en un periodo definido. Acuerda cómo se observará el avance y quién realizará los cambios. Sin implementación, incluso una recomendación acertada puede quedarse archivada.</p>\n<h2>Cuándo conviene resolverlo primero dentro del equipo</h2><p>Si el problema es una tarea operativa claramente definida, puede hacer falta capacidad de ejecución más que consultoría. Y si todavía no existe una persona responsable ni tiempo para implementar, conviene resolver esas condiciones antes de ampliar el proyecto.</p><p>Prepara una hoja con cinco respuestas: qué decisión necesitas tomar, por qué ahora, qué has intentado, qué evidencia tienes y quién ejecutará los acuerdos. Esa hoja hará más productiva la primera conversación.</p>",
-    "sources": []
+    "sources": [],
+    "updated": "2026-10-30",
+    "service_label": "Consultoría de negocios en México",
+    "cta_description": "Si ya identificaste una decisión que necesita apoyo, revisa cómo podemos definir el diagnóstico, las prioridades y el alcance del proyecto."
   },
   {
     "slug": "inteligencia-de-mercados-mexico-denue",
@@ -24,7 +27,10 @@
         "label": "INEGI · Directorio Estadístico Nacional de Unidades Económicas (DENUE)",
         "url": "https://www.inegi.org.mx/app/mapa/denue/default.aspx"
       }
-    ]
+    ],
+    "updated": "2026-10-30",
+    "service_label": "Inteligencia en marketing en México",
+    "cta_description": "Si necesitas contrastar mercado, competencia y datos de tu negocio, revisa cómo podemos convertir esa información en prioridades de acción."
   },
   {
     "slug": "visitas-web-prospectos-mexico",
