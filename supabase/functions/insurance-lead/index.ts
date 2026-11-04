@@ -28,7 +28,7 @@ Deno.serve(async (request)=>{
  const privacy=Deno.env.get("PROTECCION_PRIVACY_VERSION");
  if(!url||!key||!secret||!privacy||privacy==="PENDIENTE")return fail("Servicio no disponible",503,origin);
  let data:Record<string,unknown>;
- try{const body=await request.text();if(body.length>12000) return fail("Solicitud demasiado grande",413,origin);data=JSON.parse(body)}
+ try{const body=await request.text();if(body.length>12000) return fail("Solicitud demasiado grande",413,origin);const parsed=JSON.parse(body);if(!parsed||Array.isArray(parsed)||typeof parsed!=="object")return fail("Solicitud inválida",400,origin);data=parsed}
  catch{return fail("Solicitud inválida",400,origin)}
  const full_name=clean(data.full_name,100),rawphone=clean(data.phone,25);
  const phone=rawphone.replace(/\D/g,"").replace(/^52(?=\d{10}$)/,"");
@@ -51,7 +51,7 @@ Deno.serve(async (request)=>{
  const budgetScore:Record<string,number>={menos_500:0,500_999:10,1000_1999:23,2000_3999:30,4000_mas:35,por_definir:3};
  const timeScore:Record<string,number>={esta_semana:25,este_mes:20,tres_meses:10,explorando:3};
  const score=Math.min(100,budgetScore[budget]+timeScore[timeframe]+(objective==="explorar"?2:15)+10+(email?5:0)+10);
- const qualified=score>=70&&["1000_1999","2000_3999","4000_mas"].includes(budget);
+ const qualified=score>=70&&["1000_1999","2000_3999","4000_mas"].includes(budget)&&timeframe!=="explorando"&&objective!=="explorar";
  const utm=(data.utm && typeof data.utm==="object" && !Array.isArray(data.utm)?data.utm:{}) as Record<string,unknown>;
  const source=clean(utm.utm_source,100)||"directo";
  const row={
