@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es-MX"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnóstico de protección | Socio Estratégico</title>
+<meta name="description" content="Identifica qué te gustaría proteger y solicita una asesoría personalizada sobre opciones de protección financiera en México.">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#172C49">
+<link rel="icon" href="/socio-estrategico-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/proteccion.css?v=1">
+<script src="/proteccion.js?v=1" defer></script>
+</head><body>
+<a class="skip" href="#formulario">Ir al formulario</a>
+<header class="topbar wrap"><a class="brand" href="/" aria-label="Socio Estratégico"><img src="/socio-estrategico-logo.svg" alt="" width="42" height="42"><span>SOCIO <b>ESTRATÉGICO</b></span></a><span class="secure">Asesoría humana · México</span></header>
+<main class="wrap">
+<section class="hero"><div class="pitch">
+<p class="eyebrow">TU PLAN EMPIEZA CON UNA BUENA PREGUNTA</p>
+<h1>Protege lo importante.<br><em>Empieza por entender tus opciones.</em></h1>
+<p class="intro">No todos necesitamos el mismo seguro. Cuéntame qué quieres proteger y revisemos juntos las alternativas que se adapten a tus prioridades y presupuesto.</p>
+<div class="benefits"><span>✓ Diagnóstico sin costo</span><span>✓ Opciones personalizadas</span><span>✓ Sin compromiso de contratación</span></div>
+<p class="byline">Atención personal con un asesor de seguros. La contratación, cobertura y aceptación están sujetas a la evaluación y condiciones de cada aseguradora.</p>
+</div>
+<div id="formulario" class="form-card">
+<div class="card-title"><p class="eyebrow">DIAGNÓSTICO INICIAL · 2 PASOS</p><div class="progress" aria-label="Avance del formulario"><span id="progress-fill"></span></div><h2 id="step-title">01. ¿Qué es importante para ti?</h2><p id="step-desc">Responde tres preguntas para orientar la conversación.</p></div>
+<div id="mode-notice" class="demo-notice">Vista previa: este formulario aún no recibe solicitudes ni guarda tus respuestas.</div>
+<form id="lead-form" novalidate>
+<fieldset id="step-1" class="step"><legend class="sr-only">Prioridades</legend>
+<label for="objective">¿Qué te gustaría proteger? <small>Obligatorio</small></label>
+<select id="objective" name="objective" required><option value="">Selecciona una opción</option><option value="familia">El bienestar económico de mi familia</option><option value="ingresos">Mis ingresos ante un imprevisto</option><option value="retiro">Mi retiro y tranquilidad futura</option><option value="educacion">La educación de mis hijos</option><option value="patrimonio">Mi patrimonio y mis metas de ahorro</option><option value="empresa">La continuidad de mi negocio</option><option value="explorar">Quiero conocer mis opciones</option></select>
+<label for="budget">¿Qué cantidad mensual te resultaría cómoda? <small>Obligatorio</small></label>
+<select id="budget" name="budget" required><option value="">Selecciona un rango</option><option value="menos_500">Menos de $500 MXN</option><option value="500_999">$500 a $999 MXN</option><option value="1000_1999">$1,000 a $1,999 MXN</option><option value="2000_3999">$2,000 a $3,999 MXN</option><option value="4000_mas">$4,000 MXN o más</option><option value="por_definir">Aún no lo sé</option></select>
+<label for="timeframe">¿Cuándo te gustaría explorar alternativas? <small>Obligatorio</small></label>
+<select id="timeframe" name="timeframe" required><option value="">Selecciona una opción</option><option value="esta_semana">Esta semana</option><option value="este_mes">Este mes</option><option value="tres_meses">En los próximos 3 meses</option><option value="explorando">Solo estoy explorando</option></select>
+<label for="age_range">¿En qué rango de edad estás? <small>Obligatorio</small></label>
+<select id="age_range" name="age_range" required><option value="">Selecciona un rango</option><option value="18_24">18 a 24 años</option><option value="25_34">25 a 34 años</option><option value="35_44">35 a 44 años</option><option value="45_54">45 a 54 años</option><option value="55_64">55 a 64 años</option><option value="65_mas">65 años o más</option></select>
+<button class="primary" id="next" type="button">Continuar →</button>
+</fieldset>
+<fieldset id="step-2" class="step" hidden><legend class="sr-only">Contacto</legend>
+<div class="two"><div><label for="full_name">Tu nombre <small>Obligatorio</small></label><input id="full_name" name="full_name" autocomplete="name" required minlength="3" maxlength="100" placeholder="Nombre y apellido"></div><div><label for="phone">WhatsApp o celular <small>Obligatorio</small></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="10 dígitos"></div></div>
+<label for="email">Correo electrónico <small>Opcional</small></label><input id="email" name="email" type="email" autocomplete="email" maxlength="150" placeholder="nombre@correo.com">
+<div class="two"><div><label for="contact_method">¿Cómo prefieres que te contacte?</label><select id="contact_method" name="contact_method"><option value="whatsapp">WhatsApp</option><option value="llamada">Llamada</option><option value="email">Correo electrónico</option></select></div><div><label for="gender">¿Cómo te identificas? <small>Opcional</small></label><select id="gender" name="gender"><option value="">Prefiero no indicarlo</option><option value="mujer">Mujer</option><option value="hombre">Hombre</option><option value="otra">Otra identidad</option></select></div></div>
+<label for="city">¿En qué ciudad estás? <small>Opcional</small></label><input id="city" name="city" maxlength="80" autocomplete="address-level2" placeholder="Ejemplo: Ciudad de México">
+<div class="checkrow"><input type="checkbox" id="adult" name="adult" required><label for="adult">Confirmo que soy mayor de 18 años.</label></div>
+<div class="checkrow"><input type="checkbox" id="contact_consent" name="contact_consent" required><label for="contact_consent">He leído el <a href="/proteccion-aviso-privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a> y autorizo que me contacten para atender esta solicitud de diagnóstico.</label></div>
+<div class="checkrow"><input type="checkbox" id="marketing_opt_in" name="marketing_opt_in"><label for="marketing_opt_in">También quiero recibir consejos y promociones futuras (opcional).</label></div>
+<label class="trap" for="website">No llenar este campo</label><input class="trap" id="website" name="website" tabindex="-1" autocomplete="off">
+<div id="captcha" aria-live="polite"></div>
+<p id="form-feedback" role="status" aria-live="polite"></p>
+<div class="form-actions"><button class="back" id="back" type="button">← Regresar</button><button class="primary" id="submit-lead" type="submit" disabled>Solicitar mi diagnóstico →</button></div>
+</fieldset></form><p class="fineprint">No pedimos información médica ni patrimonial detallada en este formulario. Sin obligación de contratar.</p>
+</div></section>
+<section class="why"><article><span>01</span><h3>Escuchamos primero</h3><p>Tu familia, tus objetivos y tus preocupaciones guían la conversación.</p></article><article><span>02</span><h3>Analizamos alternativas</h3><p>Comparamos prioridades, presupuesto y condiciones de contratación.</p></article><article><span>03</span><h3>Tú decides</h3><p>Recibes orientación para decidir si una protección tiene sentido para ti.</p></article></section>
+</main>
+<footer class="wrap footer"><p>© Socio Estratégico · Diagnóstico de protección personal en México</p><p><a href="/">Volver al sitio</a> · <a href="mailto:miguel.meza.lcc@gmail.com">Contacto de privacidad</a></p></footer>
+</body></html>
