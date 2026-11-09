@@ -42,3 +42,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: Check public SEO after deployment
+        continue-on-error: true # CDN propagation can briefly lag behind deployment
+        run: python3 scripts/check-live-seo.py
+

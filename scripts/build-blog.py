@@ -57,4 +57,48 @@ for url,modified in [(BASE+'blog/',None)]+[(BASE+'blog/'+p['slug']+'.html',p.get
         if last is None:last=ET.SubElement(node,'{'+ns+'}lastmod')
         last.text=modified
 ET.indent(tree,space='  ');tree.write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
-print('Built',len(posts),'articles, blog index, RSS and sitemap')
+
+# Keep discovery links in the homepage and service pages fresh at every publication.
+# Markers make this repeatable and avoid adding duplicate sections.
+def refresh_block(path,start,end,html_block):
+    content=path.read_text()
+    assert content.count(start)==1 and content.count(end)==1,(path,'missing SEO marker')
+    before,remainder=content.split(start,1)
+    _,after=remainder.split(end,1)
+    path.write_text(before+start+'\n'+html_block+'\n'+end+after)
+
+latest_cards='<div class="service-grid">'+''.join(
+    '<article class="service-card">'
+    +f'<p class="micro">{e(p["category"])} · <time datetime="{p["date"]}">{p["date"]}</time></p>'
+    +f'<h3>{e(p["title"])}</h3><p>{e(p["description"])}</p>'
+    +f'<a href="/blog/{p["slug"]}.html">Leer el artículo →</a></article>'
+    for p in posts[:3]
+)+'</div>'
+refresh_block(ROOT/'index.html','<!-- SEO-LATEST:START -->','<!-- SEO-LATEST:END -->',latest_cards)
+service_pages=['consultoria-de-negocios.html','inteligencia-en-marketing.html','estrategia-comercial.html']
+for service in service_pages:
+    related=[p for p in posts if p['service']==service][:3]
+    if related:
+        related_html='<aside class="service-reading"><p class="micro">LECTURAS RECIENTES RELACIONADAS</p>'+''.join(
+            f'<p><a href="/blog/{p["slug"]}.html">{e(p["title"])} →</a></p>' for p in related
+        )+'</aside>'
+        refresh_block(ROOT/service,'<!-- SEO-RELATED:START -->','<!-- SEO-RELATED:END -->',related_html)
+
+# The blog landing, homepage and service pages really change as new posts arrive.
+latest_published=max((p.get('updated',p['date']) for p in posts),default=None)
+if latest_published:
+    change_dates={BASE:latest_published,BASE+'blog/':latest_published}
+    change_dates.update({
+        BASE+service:max(p.get('updated',p['date']) for p in posts if p['service']==service)
+        for service in service_pages if any(p['service']==service for p in posts)
+    })
+    for url,modified in change_dates.items():
+        node=known.get(url)
+        if node is not None:
+            last=node.find('{'+ns+'}lastmod')
+            if last is None:last=ET.SubElement(node,'{'+ns+'}lastmod')
+            last.text=modified
+ET.indent(tree,space='  ')
+tree.write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
+
+print('Built',len(posts),'articles, blog index, RSS, sitemap and fresh internal links')

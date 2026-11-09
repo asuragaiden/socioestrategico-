@@ -58,4 +58,28 @@ home=Page((ROOT/'index.html').read_text());assert 'docencia' in home.ids,'Teachi
 assert len(home.attrs('details',**{'class':'mobile-menu'}))==1,'Mobile menu missing'
 assert 'Sitemap: '+BASE+'sitemap.xml' in (ROOT/'robots.txt').read_text()
 ET.parse(ROOT/'blog/feed.xml')
-print('PASS sitemap, RSS, canonical URLs, metadata, schema, local links and noindex boundaries')
+
+# A fresh publication must appear consistently in every discovery surface.
+posts=json.loads((ROOT/'content/posts.json').read_text())
+blog_urls={BASE+'blog/'+p['slug']+'.html' for p in posts}
+assert blog_urls.issubset(set(urls)),('Articles missing from sitemap',sorted(blog_urls-set(urls)))
+feed=ET.parse(ROOT/'blog/feed.xml').getroot()
+rss_urls=[n.text for n in feed.findall('./channel/item/link')]
+assert len(rss_urls)==len(set(rss_urls)) and set(rss_urls)==blog_urls,'RSS and article manifest mismatch'
+blog_index=(ROOT/'blog/index.html').read_text()
+for p in posts:
+ assert '/blog/'+p['slug']+'.html' in blog_index,(p['slug'],'missing blog index link')
+by_date=sorted(posts,key=lambda p:p['date'],reverse=True)
+home_links={a['href'] for a in home.attrs('a') if 'href' in a}
+for p in by_date[:3]:
+ assert '/blog/'+p['slug']+'.html' in home_links,(p['slug'],'missing latest homepage link')
+for service in ['consultoria-de-negocios.html','inteligencia-en-marketing.html','estrategia-comercial.html']:
+ page=Page((ROOT/service).read_text())
+ hrefs={a['href'] for a in page.attrs('a') if 'href' in a}
+ for p in [x for x in by_date if x['service']==service][:3]:
+  assert '/blog/'+p['slug']+'.html' in hrefs,(service,p['slug'],'missing related link')
+for url in [BASE,BASE+'blog/']:
+ node=next(n for n in ET.parse(ROOT/'sitemap.xml').findall('s:url',ns) if n.findtext('s:loc',namespaces=ns)==url)
+ assert node.findtext('s:lastmod',namespaces=ns),(url,'missing latest modification date')
+
+print('PASS sitemap, RSS, fresh homepage and service links, canonical URLs and noindex boundaries')

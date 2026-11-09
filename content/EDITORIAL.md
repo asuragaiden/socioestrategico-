@@ -32,3 +32,13 @@ Un borrador semanal, con revisión editorial antes de publicar. La tarea program
 
 ## Medición
 Separar audiencia por país y canal, lectura de páginas de servicio, clic a WhatsApp (`contact_intent`), consultas efectivamente recibidas y oportunidades pertinentes. Un clic no es una consulta enviada. El registro en dataLayer requiere etiquetas y eventos configurados en GTM/GA4 para aparecer en informes; no se ha verificado esa configuración. Search Console requiere acceso a la propiedad para comprobar indexación, consultas y país. No se han añadido datos de las capturas del usuario a los artículos públicos.
+
+
+## Descubrimiento e indexación (flujo automático)
+- El despliegue genera HTML, RSS, sitemap, las tres publicaciones recientes de la portada y hasta tres lecturas relacionadas en cada página comercial.
+- Las fechas `lastmod` reflejan cambios reales de contenido, no la hora de cada despliegue.
+- `scripts/check-seo.py` detiene la publicación si falta un artículo en sitemap o RSS o si las publicaciones recientes no están enlazadas desde la portada y sus servicios.
+- `scripts/check-live-seo.py` revisa el sitio público después de cada despliegue: HTTP 200, redirecciones inesperadas, URL canónica, directiva index, sitemap, RSS y enlaces. Una falla externa transitoria no deshace un despliegue que ya terminó.
+- El workflow `.github/workflows/seo-monitor.yml` verifica el sitio diariamente (aproximadamente a las 08:15 de CDMX, según disponibilidad de GitHub Actions). Notificaciones según la configuración del repositorio.
+- Esta automatización facilita el descubrimiento: **no garantiza indexación inmediata**. La API Indexing de Google no admite artículos normales de blog como caso de uso.
+- En Search Console inspecciona manualmente las URLs prioritarias pendientes y solicita indexación cuando convenga; mide periódicamente la evolución de las páginas «Descubierta: actualmente sin indexar».
