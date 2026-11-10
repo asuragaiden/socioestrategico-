@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -29,6 +30,42 @@ jobs:
           python3 scripts/build-blog.py
           python3 scripts/optimize-public.py
           python3 scripts/check-seo.py
+
+      # The repository currently has both legacy branch Pages and Actions deployments.
+      # Legacy can otherwise finish later and overwrite the SEO-optimized build.
+      - name: Wait for competing legacy Pages deployment
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, time
+          from urllib.request import Request, urlopen
+
+          repo = os.environ['GITHUB_REPOSITORY']
+          sha = os.environ['GITHUB_SHA']
+          url = f'https://api.github.com/repos/{repo}/actions/runs?head_sha={sha}&per_page=100'
+          headers = {
+              'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
+              'Accept': 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2022-11-28',
+          }
+          for attempt in range(1, 19):
+              with urlopen(Request(url, headers=headers), timeout=20) as response:
+                  runs = json.load(response)['workflow_runs']
+              legacy = [r for r in runs if r.get('path') == 'dynamic/pages/pages-build-deployment']
+              if legacy:
+                  latest = max(legacy, key=lambda r: r['id'])
+                  print(f"Legacy Pages {latest['status']} ({latest.get('conclusion')})", flush=True)
+                  if latest['status'] == 'completed':
+                      break
+              elif attempt >= 4:
+                  print('No competing legacy Pages deployment detected.', flush=True)
+                  break
+              time.sleep(10)
+          else:
+              raise RuntimeError('Legacy Pages deployment is still running; refusing to race it')
+          PY
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
