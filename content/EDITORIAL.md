@@ -30,6 +30,13 @@ Un borrador semanal, con revisión editorial antes de publicar. La tarea program
 4. Revisar el texto, enlaces, metadatos, móvil y escritorio. Comprobar que cualquier nueva URL existe y que JSON-LD coincide con el contenido visible.
 5. Publicar los archivos generados junto con la fuente. El workflow existente de GitHub Pages despliega la raíz del repositorio.
 
+## Imágenes sociales automáticas (Facebook, LinkedIn y WhatsApp)
+- Cada vez que se ejecuta `scripts/build-blog.py`, el generador `scripts/social_covers.py` crea una portada JPEG de 1200 × 630 px por artículo en `blog/og/<slug>.jpg`; también crea una para el índice del blog.
+- Las páginas incorporan `og:image`, dimensiones, tipo JPEG, texto alternativo y `twitter:image`; la versión de la URL cambia cuando cambia el texto de la portada. El título, la categoría y la identidad gráfica se generan de forma determinista, por lo que no hace falta subir miniaturas manualmente.
+- Para probar localmente: `python -m pip install -r requirements.txt && python scripts/build-blog.py && python scripts/optimize-public.py && python scripts/check-seo.py`.
+- Al publicar, revisar la URL nueva en el [Depurador de contenido compartido de Meta](https://developers.facebook.com/tools/debug/) y pulsar **Volver a extraer** (Scrape Again) para actualizar la caché de Facebook. Los posts antiguos pueden necesitar actualizar el adjunto compartido o volver a publicarse; cambiar el HTML no actualiza necesariamente publicaciones anteriores.
+- Las imágenes se generan en el despliegue de GitHub Pages, no se guardan como binarios en el repositorio. Si se necesita arte editorial personalizado en el futuro, extender el manifiesto de contenidos y conservar el respaldo por título.
+
 ## Medición
 Separar audiencia por país y canal, lectura de páginas de servicio, clic a WhatsApp (`contact_intent`), consultas efectivamente recibidas y oportunidades pertinentes. Un clic no es una consulta enviada. El registro en dataLayer requiere etiquetas y eventos configurados en GTM/GA4 para aparecer en informes; no se ha verificado esa configuración. Search Console requiere acceso a la propiedad para comprobar indexación, consultas y país. No se han añadido datos de las capturas del usuario a los artículos públicos.
 
