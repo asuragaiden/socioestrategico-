@@ -25,6 +25,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image build dependencies
+        run: python -m pip install -r requirements.txt
+
       - name: Build and validate SEO pages
         run: |
           python3 scripts/build-blog.py
