@@ -16,7 +16,7 @@ for path in paths:
   s=s.replace('</head>',f'<meta name="{name}" content="{content}"></head>')
  if 'property="og:site_name"' not in s:s=s.replace('</head>','<meta property="og:site_name" content="Socio Estratégico"></head>')
  tag('robots','index,follow,max-image-preview:large')
- tag('twitter:card','summary');tag('twitter:title',title);tag('twitter:description',desc)
+ tag('twitter:card','summary_large_image' if rel.startswith('blog/') else 'summary');tag('twitter:title',title);tag('twitter:description',desc)
  def schema(m):
   d=json.loads(m.group(1));graph=d['@graph']
   for n in graph:
