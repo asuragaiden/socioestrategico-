@@ -1,0 +1,47 @@
+name: Validate blog social previews
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/build-blog.py'
+      - 'scripts/social_covers.py'
+      - 'scripts/optimize-public.py'
+      - 'scripts/check-seo.py'
+      - 'content/posts.json'
+      - 'requirements.txt'
+      - '.github/workflows/blog-preview-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Pillow
+        run: python -m pip install -r requirements.txt
+      - name: Build blog, covers and public metadata
+        run: |
+          python scripts/build-blog.py
+          python scripts/optimize-public.py
+          python scripts/check-seo.py
+      - name: Verify actual cover dimensions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          images=list(Path('blog/og').glob('*.jpg'))
+          assert len(images)>=2, 'No social preview images generated'
+          for path in images:
+              with Image.open(path) as im:
+                  assert im.size==(1200,630),(path,im.size)
+                  assert im.format=='JPEG',(path,im.format)
+          print('PASS',len(images),'social preview JPEGs')
+          PY
