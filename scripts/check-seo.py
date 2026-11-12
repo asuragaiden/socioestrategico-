@@ -69,6 +69,22 @@ assert len(rss_urls)==len(set(rss_urls)) and set(rss_urls)==blog_urls,'RSS and a
 blog_index=(ROOT/'blog/index.html').read_text()
 for p in posts:
  assert '/blog/'+p['slug']+'.html' in blog_index,(p['slug'],'missing blog index link')
+# Each article must ship a real 1200x630 JPEG and the metadata Facebook needs.
+for post in posts:
+ social_path='blog/og/'+post['slug']+'.jpg'
+ cover=ROOT/social_path
+ assert cover.is_file() and cover.stat().st_size>5000,(social_path,'missing social cover')
+ assert cover.read_bytes()[:2]==bytes([255,216]),(social_path,'not a JPEG')
+ page=Page((ROOT/('blog/'+post['slug']+'.html')).read_text())
+ images=page.attrs('meta',**{'property':'og:image'})
+ assert len(images)==1 and images[0]['content'].startswith(BASE+social_path+'?v='),(post['slug'],'missing og:image')
+ assert page.attrs('meta',**{'property':'og:image:width'})[0]['content']=='1200',post['slug']
+ assert page.attrs('meta',**{'property':'og:image:height'})[0]['content']=='630',post['slug']
+ cards=page.attrs('meta',name='twitter:card')
+ assert len(cards)==1 and cards[0]['content']=='summary_large_image',post['slug']
+ assert len(page.attrs('meta',name='twitter:image'))==1,(post['slug'],'missing twitter:image')
+blog_cover=ROOT/'blog/og/ideas-para-decidir.jpg'
+assert blog_cover.is_file() and blog_cover.read_bytes()[:2]==bytes([255,216]),'Blog index cover missing'
 by_date=sorted(posts,key=lambda p:p['date'],reverse=True)
 home_links={a['href'] for a in home.attrs('a') if 'href' in a}
 for p in by_date[:3]:
