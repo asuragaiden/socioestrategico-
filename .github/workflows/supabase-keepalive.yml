@@ -7,6 +7,9 @@ on:
     # UTC; approximately 09:13, 14:13 and 19:13 Mexico City time.
     - cron: '13 1,15,20 * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/supabase-keepalive.yml'
 
 permissions:
   contents: read
